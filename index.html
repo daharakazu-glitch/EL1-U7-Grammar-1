@@ -1,0 +1,625 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar Infographic & Workbook - Unit 7</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 全体的なフォントサイズを大きく、統一的に設定 */
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 26px; /* ベースフォントサイズを大きく設定 */
+        }
+        /* 見出しのサイズを相対的に調整 */
+        h1 { font-size: 2.5em; }
+        h2 { font-size: 2em; }
+        h3 { font-size: 1.7em; }
+        h4 { font-size: 1.5em; }
+        
+        /* 段落、ボタンなど主要なテキスト要素のサイズを統一 */
+        p, div, span, button {
+            font-size: 1em;
+        }
+
+        /* 英文フォントのスタイル（サイズは継承） */
+        .font-times {
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .tab-active {
+            border-bottom-color: #ffffff;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        .page {
+            display: none;
+        }
+        .page-active {
+            display: block;
+        }
+        .infographic-card {
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 2.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .infographic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .audio-btn-small {
+            padding: 0.5rem 1rem;
+        }
+        .pdf-btn {
+            font-size: 0.8em;
+            padding: 0.5em 1em;
+        }
+        .jp-explanation {
+            font-size: 0.9em;
+            color: #4b5563; /* gray-600 */
+            margin-top: 0.75rem;
+        }
+        .recording {
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+    </style>
+</head>
+<body class="bg-blue-700 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="text-center mb-10">
+            <h1 class="font-bold text-white">English Grammar Hub</h1>
+            <p class="text-blue-200 mt-2">Unit 7: Where will you live in the future?</p>
+        </header>
+
+        <!-- タブナビゲーション -->
+        <div class="mb-10 border-b border-blue-500">
+            <nav class="flex justify-center -mb-px space-x-8" aria-label="Tabs">
+                <button onclick="changeTab('infographic')" class="tab-btn tab-active whitespace-nowrap py-4 px-2 border-b-2 font-medium" id="tab-infographic">
+                    <i class="fas fa-chart-pie mr-2"></i>Infographic
+                </button>
+                <button onclick="changeTab('workbook')" class="tab-btn whitespace-nowrap py-4 px-2 border-b-2 border-transparent text-blue-300 hover:text-white hover:border-gray-300 font-medium" id="tab-workbook">
+                    <i class="fas fa-pencil-alt mr-2"></i>Workbook
+                </button>
+            </nav>
+        </div>
+
+        <!-- ページコンテンツ -->
+        <main>
+            <!-- ページ1: インフォグラフィック -->
+            <div id="page-infographic" class="page page-active">
+                 <div class="text-right mb-4">
+                    <button onclick="downloadPdf('infographic-content', 'Unit7_Infographic.pdf')" class="pdf-btn bg-white hover:bg-gray-100 text-blue-700 font-bold rounded-lg shadow-md transition duration-300">
+                        <i class="fas fa-file-pdf mr-2"></i>PDFでダウンロード
+                    </button>
+                </div>
+                <div id="infographic-content">
+                    <div class="grid grid-cols-1 gap-10 max-w-5xl mx-auto">
+                        <!-- G15: 原形不定詞 -->
+                        <div class="infographic-card printable-section">
+                            <h2 class="font-bold text-indigo-600 mb-4">G15: 原形不定詞</h2>
+                            <p class="mb-4">「SはOが～する行為(の一部始終)を～する」という意味を表します。知覚動詞(see, hear, feelなど)の後に使われます。</p>
+                            
+                            <div class="bg-indigo-50 p-5 rounded-lg mb-6">
+                                <p class="font-mono text-center text-indigo-800">S + V [=知覚動詞] + O + do</p>
+                            </div>
+                            
+                            <div class="p-4 bg-sky-50 rounded-md">
+                                <div class="flex justify-between items-center">
+                                    <p class="font-times">Since then, they have <strong class="text-blue-600">seen</strong> their business <strong class="text-blue-600">take off</strong>.</p>
+                                    <div class="flex space-x-2">
+                                        <button onclick="speakText(this.parentElement.previousElementSibling.textContent)" class="audio-btn-small bg-green-500 hover:bg-green-600 text-white font-bold rounded-md transition duration-300 flex items-center"><i class="fas fa-volume-up"></i></button>
+                                        <button onclick="startRecording(this, this.parentElement.previousElementSibling.textContent)" class="audio-btn-small bg-red-500 hover:bg-red-600 text-white font-bold rounded-md transition duration-300 flex items-center"><i class="fas fa-microphone"></i></button>
+                                    </div>
+                                </div>
+                                <div class="text-center mt-2 text-sm result-display"></div>
+                                <p class="jp-explanation">（それから、彼らはビジネスが軌道に乗るのを見てきた）</p>
+                            </div>
+                        </div>
+
+                        <!-- G16: 仮定法過去完了 -->
+                        <div class="infographic-card printable-section">
+                            <h2 class="font-bold text-green-600 mb-4">G16: 仮定法過去完了</h2>
+                            <p class="mb-4">過去の事実に反する仮定や願望を表します。「もし～だったら、…だっただろうに」という意味になります。</p>
+
+                            <div class="bg-green-50 p-5 rounded-lg mb-6">
+                                <p class="font-mono text-center text-green-800">If + S + had + 過去分詞, S' + would/could/might + have + 過去分詞</p>
+                            </div>
+                            
+                            <div class="p-4 bg-green-50 rounded-md">
+                                <div class="flex justify-between items-center">
+                                    <p class="font-times">I <strong class="text-blue-600">wouldn't have appreciated</strong> it so much <strong class="text-blue-600">if I hadn't gone off</strong> to explore other places.</p>
+                                     <div class="flex space-x-2">
+                                        <button onclick="speakText(this.parentElement.previousElementSibling.textContent)" class="audio-btn-small bg-green-500 hover:bg-green-600 text-white font-bold rounded-md transition duration-300 flex items-center"><i class="fas fa-volume-up"></i></button>
+                                        <button onclick="startRecording(this, this.parentElement.previousElementSibling.textContent)" class="audio-btn-small bg-red-500 hover:bg-red-600 text-white font-bold rounded-md transition duration-300 flex items-center"><i class="fas fa-microphone"></i></button>
+                                    </div>
+                                </div>
+                                <div class="text-center mt-2 text-sm result-display"></div>
+                                <p class="jp-explanation">（もしほかの場所に出て行っていなかったら、それほどまでに故郷の良さが分からなかったでしょう）</p>
+                            </div>
+                        </div>
+                        
+                        <!-- G17: 過去完了進行形 -->
+                        <div class="infographic-card printable-section">
+                            <h2 class="font-bold text-orange-600 mb-4">G17: 過去完了進行形</h2>
+                            <p class="mb-4">過去のある時点よりさらに前に、何らかの動作が継続していたことを表します。「(その時まで)ずっと～していた」という意味になります。</p>
+                             <div class="bg-orange-50 p-5 rounded-lg mb-6">
+                                <p class="font-mono text-center text-orange-800">had been + doing</p>
+                            </div>
+                            <div class="p-4 bg-orange-50 rounded-md">
+                                <div class="flex justify-between items-center mt-2">
+                                    <p class="font-times">Jenny <strong class="text-blue-600">had been starting to think</strong> about a future away from Japan...</p>
+                                     <div class="flex space-x-2">
+                                        <button onclick="speakText(this.parentElement.previousElementSibling.textContent)" class="audio-btn-small bg-green-500 hover:bg-green-600 text-white font-bold rounded-md transition duration-300 flex items-center"><i class="fas fa-volume-up"></i></button>
+                                        <button onclick="startRecording(this, this.parentElement.previousElementSibling.textContent)" class="audio-btn-small bg-red-500 hover:bg-red-600 text-white font-bold rounded-md transition duration-300 flex items-center"><i class="fas fa-microphone"></i></button>
+                                    </div>
+                                </div>
+                                <div class="text-center mt-2 text-sm result-display"></div>
+                                 <p class="jp-explanation">（ジェニーは日本を離れた将来について考え始めていたところだった…）</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ページ2: ワークブック -->
+            <div id="page-workbook" class="page">
+                <div class="flex justify-end mb-4 space-x-4">
+                    <button onclick="downloadWorkbookPdf(false)" class="pdf-btn bg-white hover:bg-gray-100 text-blue-700 font-bold rounded-lg shadow-md transition duration-300">
+                        <i class="fas fa-file-pdf mr-2"></i>問題PDF
+                    </button>
+                    <button onclick="downloadWorkbookPdf(true)" class="pdf-btn bg-white hover:bg-gray-100 text-blue-700 font-bold rounded-lg shadow-md transition duration-300">
+                        <i class="fas fa-file-signature mr-2"></i>解答PDF
+                    </button>
+                </div>
+                <div id="workbook-container" class="space-y-8">
+                    <!-- JavaScriptで問題がここに挿入されます -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const { jsPDF } = window.jspdf;
+        let recognition;
+        let currentRecordButton = null;
+        let voices = [];
+
+        // --- START: Improved Lightweight Speech Synthesis ---
+        
+        // Function to get and prepare voices.
+        function populateVoiceList() {
+            voices = speechSynthesis.getVoices();
+        }
+
+        populateVoiceList();
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = populateVoiceList;
+        }
+
+        // テキスト読み上げ機能 (高品質なローカル音声を選択)
+        function speakText(text) {
+            if (speechSynthesis.speaking) {
+                speechSynthesis.cancel();
+            }
+            const cleanText = text.replace(/"/g, '');
+            const utterance = new SpeechSynthesisUtterance(cleanText);
+            
+            // Try to find a higher quality voice installed on the user's system.
+            const googleVoice = voices.find(voice => voice.name === 'Google US English' && voice.lang.startsWith('en'));
+            const microsoftVoice = voices.find(voice => voice.name === 'Microsoft David - English (United States)' && voice.lang.startsWith('en'));
+
+            if (googleVoice) {
+                utterance.voice = googleVoice;
+            } else if (microsoftVoice) {
+                utterance.voice = microsoftVoice;
+            } else {
+                 // Fallback to default
+                utterance.lang = 'en-US';
+            }
+            
+            speechSynthesis.speak(utterance);
+        }
+        // --- END: Improved Lightweight Speech Synthesis ---
+
+
+        // Speech Recognition setup
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (SpeechRecognition) {
+            recognition = new SpeechRecognition();
+            recognition.continuous = false;
+            recognition.lang = 'en-US';
+            recognition.interimResults = false;
+            recognition.maxAlternatives = 1;
+
+            recognition.onresult = (event) => {
+                const speechResult = event.results[0][0].transcript;
+                if (currentRecordButton) {
+                    const targetText = currentRecordButton.dataset.targetText;
+                    const resultEl = currentRecordButton.closest('.p-4, .p-5, .audio-record-block').querySelector('.result-display');
+                    evaluateSpeech(speechResult, targetText, resultEl);
+                }
+            };
+
+            recognition.onspeechend = () => {
+                recognition.stop();
+            };
+
+            recognition.onend = () => {
+                if(currentRecordButton) {
+                    currentRecordButton.classList.remove('recording');
+                    currentRecordButton.innerHTML = '<i class="fas fa-microphone"></i>';
+                    currentRecordButton = null;
+                }
+            };
+
+            recognition.onerror = (event) => {
+                if (currentRecordButton) {
+                    const resultEl = currentRecordButton.closest('.p-4, .p-5, .audio-record-block').querySelector('.result-display');
+                    resultEl.innerHTML = `<span class="text-red-500">エラー: ${event.error}</span>`;
+                    currentRecordButton.classList.remove('recording');
+                    currentRecordButton.innerHTML = '<i class="fas fa-microphone"></i>';
+                    currentRecordButton = null;
+                }
+            };
+        }
+
+        function startRecording(button, targetText) {
+            if (!recognition) {
+                const modal = document.createElement('div');
+                modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+                modal.innerHTML = `
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                        <p class="text-lg mb-4">お使いのブラウザは音声認識に対応していません。</p>
+                        <button onclick="this.parentElement.parentElement.remove()" class="bg-blue-500 text-white px-4 py-2 rounded-lg">OK</button>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+                return;
+            }
+            if (currentRecordButton && currentRecordButton !== button) {
+                recognition.stop();
+            }
+            
+            currentRecordButton = button;
+            button.dataset.targetText = targetText;
+            const resultEl = button.closest('.p-4, .p-5, .audio-record-block').querySelector('.result-display');
+            
+            button.classList.add('recording');
+            button.innerHTML = '<i class="fas fa-stop"></i>';
+            resultEl.innerHTML = '<span class="text-gray-500">話してください...</span>';
+
+            recognition.start();
+        }
+
+        function evaluateSpeech(speech, target, resultEl) {
+            const cleanTarget = target.replace(/[.,?"']/g, "").toLowerCase();
+            const cleanSpeech = speech.replace(/[.,?"']/g, "").toLowerCase();
+
+            const targetWords = cleanTarget.split(' ');
+            const speechWords = cleanSpeech.split(' ');
+            
+            let correctWords = 0;
+            const uniqueTargetWords = [...new Set(targetWords)];
+            speechWords.forEach(word => {
+                if (uniqueTargetWords.includes(word)) {
+                    correctWords++;
+                }
+            });
+
+            const rawScore = (correctWords / uniqueTargetWords.length) * 100;
+            
+            let finalScore = 0;
+            let feedback = '';
+
+            if (rawScore >= 80) {
+                finalScore = 100;
+                feedback = '<span class="text-green-500 font-bold">素晴らしい！ ' + finalScore + '点です！</span>';
+            } else if (rawScore >= 60) {
+                finalScore = 90 + Math.floor(Math.random() * 5); // 90-94
+                feedback = '<span class="text-yellow-500 font-bold">ほぼ完璧です！ ' + finalScore + '点！</span>';
+            } else if (rawScore >= 40) {
+                finalScore = 80 + Math.floor(Math.random() * 10); // 80-89
+                feedback = '<span class="text-blue-500 font-bold">良いですね！ ' + finalScore + '点！</span>';
+            } else {
+                finalScore = 70 + Math.floor(Math.random() * 10); // 70-79
+                feedback = '<span class="text-orange-500 font-bold">もう一度挑戦してみましょう！ ' + finalScore + '点</span>';
+            }
+            resultEl.innerHTML = `認識されたテキスト: "${speech}"<br>${feedback}`;
+        }
+
+
+        // ページ切り替え機能
+        function changeTab(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('page-active'));
+            document.getElementById('page-' + pageId).classList.add('page-active');
+
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach(tab => {
+                tab.classList.remove('tab-active');
+                tab.classList.add('text-blue-300', 'hover:text-white', 'border-transparent');
+            });
+            
+            const activeTab = document.getElementById('tab-' + pageId);
+            activeTab.classList.add('tab-active');
+            activeTab.classList.remove('text-blue-300', 'hover:text-white', 'border-transparent');
+        }
+
+        // PDFダウンロード機能
+        async function createPdfFromElement(elementId, fileName, pdfFontSize) {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = pdf.internal.pageSize.getHeight();
+            const margin = 10;
+            let y = margin;
+
+            const originalElement = document.getElementById(elementId);
+            const clone = originalElement.cloneNode(true);
+            clone.id = `${elementId}-print-clone`;
+            clone.style.position = 'absolute';
+            clone.style.left = '-9999px';
+            clone.style.width = originalElement.offsetWidth + 'px';
+            document.body.appendChild(clone);
+
+            if (pdfFontSize) {
+                clone.style.fontSize = pdfFontSize;
+                clone.querySelectorAll('*').forEach(el => {
+                    el.style.fontSize = 'inherit';
+                });
+            }
+
+            const sections = clone.querySelectorAll('.printable-section');
+
+            for (const section of sections) {
+                const canvas = await html2canvas(section, { scale: 2 });
+                const imgData = canvas.toDataURL('image/png');
+                const imgProps = pdf.getImageProperties(imgData);
+                const imgHeight = (imgProps.height * (pdfWidth - margin * 2)) / imgProps.width;
+
+                if (y + imgHeight > pdfHeight - margin) {
+                    pdf.addPage();
+                    y = margin;
+                }
+
+                pdf.addImage(imgData, 'PNG', margin, y, pdfWidth - margin * 2, imgHeight);
+                y += imgHeight + 5; // セクション間のスペース
+            }
+
+            document.body.removeChild(clone);
+            pdf.save(fileName);
+        }
+
+        async function downloadPdf(elementId, fileName) {
+            await createPdfFromElement(elementId, fileName, '16px');
+        }
+
+        async function downloadWorkbookPdf(showAnswers) {
+            const originalContainer = document.getElementById('workbook-container');
+            const clone = originalContainer.cloneNode(true);
+            clone.id = 'workbook-print-clone';
+            clone.style.position = 'absolute';
+            clone.style.left = '-9999px';
+            clone.style.width = originalContainer.offsetWidth + 'px';
+            document.body.appendChild(clone);
+
+            if (showAnswers) {
+                const questionItems = clone.querySelectorAll('.printable-section[data-question]');
+                questionItems.forEach(item => {
+                    const questionTextEl = item.querySelector('.text-gray-800.mb-4');
+                    const qData = JSON.parse(item.dataset.question);
+                    
+                    if (qData.answer) {
+                        let newHTML = qData.q;
+                        const answerParts = qData.answer.split(',').map(s => s.trim());
+                        let tempHTML = newHTML;
+                        answerParts.forEach(part => {
+                            const answerHTML = `<strong style="color: red; font-weight: bold;">${part}</strong>`;
+                             if (qData.type.includes('並べかえ')) {
+                                 tempHTML = tempHTML.replace(/\(.*\)/, `(${answerHTML})`);
+                            } else {
+                                 tempHTML = tempHTML.replace(/_{2,}/g, answerHTML);
+                            }
+                        });
+                        newHTML = tempHTML;
+                        questionTextEl.innerHTML = newHTML;
+                    } 
+                });
+            }
+            
+            clone.querySelectorAll('button, .result-display, .answer-block').forEach(el => el.style.display = 'none');
+            
+            const fileName = showAnswers ? 'Workbook_Answers.pdf' : 'Workbook_Problems.pdf';
+            await createPdfFromElement('workbook-print-clone', fileName, '16px');
+
+            document.body.removeChild(clone);
+        }
+
+        const workbookData = [
+            {
+                title: "Reading 1 - Grammar and Expressions",
+                sections: [
+                    {
+                        id: "A",
+                        instruction: "（　　）の語（句）を並べかえ，文を完成させなさい。",
+                        questions: [
+                            { type: "並べかえ", q: "1. <span class='font-times'>( my sister / enter / saw / I ) the bookstore.</span>", answer: "I saw my sister enter", fullSentence: "I saw my sister enter the bookstore.", explanation: "〈see＋目的語＋動詞の原形〉で「…が～するのを見る」という意味になります。", translation: "私は姉［妹］がその書店に入るのを見ました。" },
+                            { type: "並べかえ", q: "2. <span class='font-times'>Did you ( my / call / hear / someone / name )?</span>", answer: "hear someone call my name", fullSentence: "Did you hear someone call my name?", explanation: "〈hear＋目的語＋動詞の原形〉で「…が～するのを聞く」という意味になります。", translation: "誰かが私の名前を呼ぶのが聞こえましたか。" },
+                            { type: "並べかえ", q: "3. <span class='font-times'>In front of the TV camera, ( his / felt / shake / he / knees ).</span>", answer: "he felt his knees shake", fullSentence: "In front of the TV camera, he felt his knees shake.", explanation: "〈feel＋目的語＋動詞の原形〉で「…が～するのを感じる」という意味になります。", translation: "テレビカメラの前で、彼はひざが震えるのを感じました。" },
+                            { type: "並べかえ", q: "4. <span class='font-times'>My brother ( touch / me / electric guitar / won’t / let / his ).</span>", answer: "won’t let me touch his electric guitar", fullSentence: "My brother won’t let me touch his electric guitar.", explanation: "〈let＋目的語＋動詞の原形〉で「…に～させる」という意味になります。", translation: "兄［弟］は私に彼のEギターを触らせてくれません。" },
+                            { type: "並べかえ", q: "5. <span class='font-times'>Yesterday, ( me / made / my mother / my room / clean ).</span>", answer: "my mother made me clean my room", fullSentence: "Yesterday, my mother made me clean my room.", explanation: "〈make＋目的語＋動詞の原形〉で「…に（強制的に）～させる」という意味になります。", translation: "昨日、母は私に部屋の掃除をさせました。" }
+                        ]
+                    },
+                    {
+                        id: "B",
+                        instruction: "日本語の意味に合うように，空所に適切な語を入れなさい。",
+                        questions: [
+                            { type: "空所補充", q: "1. 父の話を聞いていたら，私はそのようなミスはしなかっただろうに。<br><span class='font-times'>If I ______ ______ to my father, I wouldn’t have made such a mistake.</span>", answer: "had, listened", fullSentence: "If I had listened to my father, I wouldn’t have made such a mistake.", explanation: "過去の事実に反する仮定を表す仮定法過去完了の文です。" },
+                            { type: "空所補充", q: "2. あんなに早く家を出なければよかった。<br><span class='font-times'>I wish I ______ ______ ______ home that early.</span>", answer: "had, not, left", fullSentence: "I wish I had not left home that early.", explanation: "〈I wish＋仮定法過去完了〉で、過去の実現しなかった願望を表します。" },
+                            { type: "空所補充", q: "3. ミクが私たちに加わっていたら，私たちのチームは試合に勝てたのに。<br><span class='font-times'>If Miku had joined us, our team could ______ ______ the game.</span>", answer: "have, won", fullSentence: "If Miku had joined us, our team could have won the game.", explanation: "仮定法過去完了の帰結節では〈would/could/might + have + 過去分詞〉を用います。" }
+                        ]
+                    },
+                     {
+                        id: "C",
+                        instruction: "日本語の意味に合うように，（　　）内の語（句）を並べかえなさい。",
+                        questions: [
+                            { type: "並べかえ", q: "1. ケンジが旧友に会ったとき，彼は1時間以上走っていました。<br><span class='font-times'>Kenji ( been / running / when / had / over an hour / for ) he met his old friend.</span>", answer: "had been running for over an hour when", fullSentence: "Kenji had been running for over an hour when he met his old friend.", explanation: "過去のある時点(旧友に会った)より前から動作が継続していたことを表す過去完了進行形です。" },
+                            { type: "並べかえ", q: "2. 私がカフェに到着したとき，ジャズバンドが聴衆を楽しませていました。<br><span class='font-times'>When I arrived at the café, ( the audience / been / had / entertaining / a jazz band ).</span>", answer: "a jazz band had been entertaining the audience", fullSentence: "When I arrived at the café, a jazz band had been entertaining the audience.", explanation: "過去のある時点(カフェに到着した)より前から動作が継続していたことを表す過去完了進行形です。" },
+                            { type: "並べかえ", q: "3. ジルは電話がかかってくるまで，世界史を勉強していました。<br><span class='font-times'>Jill ( world history / before / studying / been / had ) she got a call.</span>", answer: "had been studying world history before", fullSentence: "Jill had been studying world history before she got a call.", explanation: "過去のある時点(電話がかかってきた)より前から動作が継続していたことを表す過去完了進行形です。" }
+                        ]
+                    }
+                ]
+            }
+        ];
+
+        // ワークブックの問題を生成
+        const workbookContainer = document.getElementById('workbook-container');
+
+        workbookData.forEach(workbook => {
+            const mainTitleEl = document.createElement('h2');
+            mainTitleEl.className = 'font-bold text-white mb-6 printable-section';
+            mainTitleEl.textContent = workbook.title;
+            workbookContainer.appendChild(mainTitleEl);
+
+            workbook.sections.forEach(sectionData => {
+                const sectionEl = document.createElement('div');
+                sectionEl.className = 'bg-white p-6 rounded-xl shadow-md mb-8 printable-section';
+                
+                const sectionHeader = document.createElement('div');
+                sectionHeader.className = 'flex items-center mb-4 border-b pb-3';
+                const sectionIdEl = document.createElement('h3');
+                sectionIdEl.className = 'font-bold text-indigo-600 mr-4';
+                sectionIdEl.textContent = sectionData.id;
+                const instructionEl = document.createElement('p');
+                instructionEl.textContent = sectionData.instruction;
+                sectionHeader.appendChild(sectionIdEl);
+                sectionHeader.appendChild(instructionEl);
+                sectionEl.appendChild(sectionHeader);
+
+                const questionsListEl = document.createElement('div');
+                questionsListEl.className = 'space-y-6';
+
+                sectionData.questions.forEach((qData) => {
+                    const questionItemEl = document.createElement('div');
+                    questionItemEl.className = 'p-5 border border-gray-200 rounded-lg printable-section';
+                    questionItemEl.dataset.question = JSON.stringify(qData);
+
+                    const questionTextEl = document.createElement('p');
+                    questionTextEl.className = 'text-gray-800 mb-4';
+                    questionTextEl.innerHTML = qData.q;
+                    questionItemEl.appendChild(questionTextEl);
+
+                    const toggleBtn = document.createElement('button');
+                    toggleBtn.className = 'toggle-btn bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out flex items-center';
+                    toggleBtn.innerHTML = '<i class="far fa-eye mr-2"></i> 解答を表示';
+                    questionItemEl.appendChild(toggleBtn);
+                    
+                    const answerBlockEl = document.createElement('div');
+                    answerBlockEl.className = 'answer-block hidden mt-4 space-y-4';
+                    
+                    if (qData.translation) {
+                        const translationContainer = document.createElement('div');
+                        translationContainer.className = 'p-4 bg-green-50 rounded-md';
+                        const translationTitle = document.createElement('h4');
+                        translationTitle.className = 'font-bold text-green-700 text-lg';
+                        translationTitle.textContent = '日本語訳';
+                        const translationText = document.createElement('p');
+                        translationText.className = 'jp-explanation mt-1';
+                        translationText.textContent = qData.translation;
+                        translationContainer.appendChild(translationTitle);
+                        translationContainer.appendChild(translationText);
+                        answerBlockEl.appendChild(translationContainer);
+                    }
+
+                    if (qData.explanation) {
+                        const explanationContainer = document.createElement('div');
+                        explanationContainer.className = 'p-4 bg-gray-100 rounded-md';
+                        const explanationTitle = document.createElement('h4');
+                        explanationTitle.className = 'font-bold text-gray-700 text-lg';
+                        explanationTitle.textContent = '解説';
+                        const explanationText = document.createElement('p');
+                        explanationText.className = 'jp-explanation mt-1';
+                        explanationText.textContent = qData.explanation;
+                        explanationContainer.appendChild(explanationTitle);
+                        explanationContainer.appendChild(explanationText);
+                        answerBlockEl.appendChild(explanationContainer);
+                    }
+                    
+                    const audioRecordContainer = document.createElement('div');
+                    audioRecordContainer.className = 'flex items-center space-x-4 audio-record-block p-4 bg-gray-50 rounded-md';
+
+                    const audioBtn = document.createElement('button');
+                    audioBtn.className = 'audio-btn bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out flex items-center';
+                    audioBtn.innerHTML = '<i class="fas fa-volume-up mr-2"></i> 音声再生';
+                    audioBtn.onclick = () => {
+                        speakText(qData.fullSentence);
+                    };
+                    audioRecordContainer.appendChild(audioBtn);
+
+                    const recordBtn = document.createElement('button');
+                    recordBtn.className = 'record-btn bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out flex items-center';
+                    recordBtn.innerHTML = '<i class="fas fa-microphone mr-2"></i> 録音評価';
+                    recordBtn.onclick = () => {
+                        startRecording(recordBtn, qData.fullSentence);
+                    };
+                    audioRecordContainer.appendChild(recordBtn);
+
+                    const resultEl = document.createElement('div');
+                    resultEl.className = 'result-display text-sm mt-2 flex-1';
+                    audioRecordContainer.appendChild(resultEl);
+                    
+                    answerBlockEl.appendChild(audioRecordContainer);
+                    questionItemEl.appendChild(answerBlockEl);
+
+                    toggleBtn.onclick = () => {
+                        const isAnswerShown = !answerBlockEl.classList.contains('hidden');
+
+                        if (isAnswerShown) { // 解答を非表示にする
+                            questionTextEl.innerHTML = qData.q;
+                            answerBlockEl.classList.add('hidden');
+                            toggleBtn.innerHTML = '<i class="far fa-eye mr-2"></i> 解答を表示';
+                        } else { // 解答を表示する
+                            let newHTML = qData.q;
+                            if (qData.answer) {
+                                const answerParts = qData.answer.split(',').map(s => s.trim());
+                                let tempHTML = newHTML;
+                                
+                                if (qData.type.includes('並べかえ')) {
+                                    const answerHTML = `<strong class="text-red-600 font-bold">${qData.answer}</strong>`;
+                                    tempHTML = tempHTML.replace(/\(.*\)/, `(${answerHTML})`);
+                                } else { // Handles 空所補充
+                                    answerParts.forEach(part => {
+                                        const answerHTML = `<strong class="text-red-600 font-bold">${part}</strong>`;
+                                        tempHTML = tempHTML.replace(/_{2,}/, answerHTML); // Replace one blank at a time
+                                    });
+                                }
+                                newHTML = tempHTML;
+                            }
+                            questionTextEl.innerHTML = newHTML;
+                            
+                            answerBlockEl.classList.remove('hidden');
+                            toggleBtn.innerHTML = '<i class="far fa-eye-slash mr-2"></i> 解答を非表示';
+                        }
+                    };
+
+                    questionsListEl.appendChild(questionItemEl);
+                });
+                sectionEl.appendChild(questionsListEl);
+                workbookContainer.appendChild(sectionEl);
+            });
+        });
+    </script>
+</body>
+</html>
